@@ -1,0 +1,50 @@
+﻿@model ControlIngresoGasto.Models.Categoria
+
+@{
+	ViewData["Title"] = "Detalle de Categoría";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detalle de Categoría</h1>
+
+<div>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.NombreCategoria)
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.NombreCategoria)
+		</dd>
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Tipo)
+		</dt>
+		<dd class="col-sm-9">
+			@if (Model.Tipo == "IN")
+			{
+				<span class="text-success">Ingreso</span>
+			}
+			else
+			{
+				<span class="text-danger">Gasto</span>
+			}
+		</dd>
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Estado)
+		</dt>
+		<dd class="col-sm-9">
+			@if (Model.Estado)
+			{
+				<span>Activo</span>
+			}
+			else
+			{
+				<span>Inactivo</span>
+			}
+		</dd>
+	</dl>
+</div>
+<div>
+	<a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+	<a asp-action="Index">Regesar al listado de categorías</a>
+</div>
